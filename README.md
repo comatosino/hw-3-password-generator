@@ -14,7 +14,7 @@ as a number.
 
 Click on the screenshot to launch the application!
 
-[![screenshot](webapp-screenshot.jpg)](https://comatosino.github.io/hw-3-password-generator/)
+[![screenshot](webapp-screenshot.jpg)](https://comatosino.github.io/hw-3-passwork-generator/)
     
 ## Acknowledgements
 
