@@ -1,4 +1,4 @@
-# hw-3-passwork-generator
+# hw-3-password-generator
 
 ## Description
 This application generates a password. The user is prompted for password length and character types
@@ -14,7 +14,7 @@ as a number.
 
 Click on the screenshot to launch the application!
 
-[![screenshot](webapp-screenshot.jpg)](https://comatosino.github.io/hw-3-passwork-generator/)
+[![screenshot](webapp-screenshot.jpg)](https://comatosino.github.io/hw-3-password-generator/)
     
 ## Acknowledgements
 
