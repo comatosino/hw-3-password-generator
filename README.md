@@ -1,4 +1,4 @@
-# hw-3-password-generator
+# hw3-password-generator
 
 ## Description
 This application generates a password. The user is prompted for password length and character types
