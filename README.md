@@ -9,8 +9,6 @@ This application generates a password. The user is prompted for password length 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#Contributing)
-- [Testing](#Testing)
 - [Questions](#Questions)
 - [License](#License)
 
