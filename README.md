@@ -16,7 +16,7 @@ This application generates a password. The user is prompted for password length 
 
 Click on the screenshot to launch the application!
 
-[![screenshot](./assets/webapp-screenshot.jpg)](https://comatosino.github.io/hw-3-passwork-generator/)
+[![screenshot](./assets/webapp-screenshot.jpg)](https://comatosino.github.io/password-generator/)
 
 ## Questions
 
