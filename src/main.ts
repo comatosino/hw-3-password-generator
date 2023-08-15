@@ -1,18 +1,25 @@
-import { RANGE, CHARS } from './vars';
+const RANGE = /\b([8-9]|[1-9][0-9]|1[01][0-9]|12[0-8])\b/;
 
-const button = document.querySelector<HTMLButtonElement>('#generate')!;
-const textArea = document.querySelector<HTMLTextAreaElement>('#password')!;
+const CHARS = {
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
+  lowercase: "abcdefghijklmnopqrstuvwxyz".split(""),
+  numbers: "0123456789".split(""),
+  special: "!@#$%&?".split(""),
+};
+
+const button = document.querySelector<HTMLButtonElement>("#generate")!;
+const textArea = document.querySelector<HTMLTextAreaElement>("#password")!;
 
 const setPassword = (): void => {
   const length = getPasswordLength();
   if (!length) {
-    textArea.value = 'Password not generated: No length entered';
+    textArea.value = "Password not generated: No length entered";
     return;
   }
 
   const chars = getPasswordChars();
   if (!chars.length) {
-    textArea.value = 'Password not generated: No character types selected';
+    textArea.value = "Password not generated: No character types selected";
     return;
   }
 
@@ -38,19 +45,19 @@ const getPasswordLength = (): number | null => {
 const getPasswordChars = (): string[] => {
   let chars: string[] = [];
 
-  if (window.confirm('Would you like to include lowercase letters?')) {
+  if (window.confirm("Would you like to include lowercase letters?")) {
     chars = chars.concat(CHARS.lowercase);
   }
 
-  if (window.confirm('Would you like to include uppercase letters?')) {
+  if (window.confirm("Would you like to include uppercase letters?")) {
     chars = chars.concat(CHARS.uppercase);
   }
 
-  if (window.confirm('Would you like to include numbers?')) {
+  if (window.confirm("Would you like to include numbers?")) {
     chars = chars.concat(CHARS.numbers);
   }
 
-  if (window.confirm('Would you like to include special characters?')) {
+  if (window.confirm("Would you like to include special characters?")) {
     chars = chars.concat(CHARS.special);
   }
 
@@ -64,7 +71,7 @@ const generatePassword = (length: number, chars: string[]): string => {
     const randomChar = chars[randomIdx];
     password.push(randomChar);
   }
-  return password.join('');
+  return password.join("");
 };
 
-button.addEventListener('click', setPassword);
+button.addEventListener("click", setPassword);

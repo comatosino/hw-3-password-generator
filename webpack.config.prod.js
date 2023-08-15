@@ -4,8 +4,7 @@ import { fileURLToPath } from "url";
 import CopyPlugin from "copy-webpack-plugin";
 
 export default {
-  mode: "development",
-  devtool: "inline-source-map",
+  mode: "production",
   entry: "./src/main.ts",
   output: {
     filename: "[name].js",
