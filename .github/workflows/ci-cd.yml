@@ -1,20 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy Pages
+name: Deploy  to Pages
 
 on:
-  workflow_dispatch:
-
+  # runs on pushes targeting the default branch
   push:
     branches: ["main"]
+  # run this workflow manually from gui
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# one concurrent deployment
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -25,18 +26,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
       - name: Config Pages
         uses: actions/configure-pages@v3
 
-      # - name: Build app
-      #   run: yarn build
-        
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v1
         with:
-          path: './dist'
-          
+          path: "./dist"
+
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
         id: deployment
+        uses: actions/deploy-pages@v1
