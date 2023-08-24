@@ -10,7 +10,7 @@ const CHARS = {
 const button = document.querySelector<HTMLButtonElement>("#generate")!;
 const textArea = document.querySelector<HTMLTextAreaElement>("#password")!;
 
-const setPassword = (): void => {
+function setPassword() {
   const length = getPasswordLength();
   if (!length) {
     textArea.value = "Password not generated: No length entered";
@@ -24,9 +24,9 @@ const setPassword = (): void => {
   }
 
   textArea.value = generatePassword(length, chars);
-};
+}
 
-const getPasswordLength = (): number | null => {
+function getPasswordLength() {
   let input: string | null;
 
   do {
@@ -40,9 +40,9 @@ const getPasswordLength = (): number | null => {
   } while (input);
 
   return null;
-};
+}
 
-const getPasswordChars = (): string[] => {
+function getPasswordChars() {
   let chars: string[] = [];
 
   if (window.confirm("Would you like to include lowercase letters?")) {
@@ -62,16 +62,31 @@ const getPasswordChars = (): string[] => {
   }
 
   return chars;
-};
+}
 
-const generatePassword = (length: number, chars: string[]): string => {
+function generatePassword(length: number, chars: string[]) {
+  shuffle(chars);
   let password = [];
+
   for (let i = 0; i < length; i++) {
     const randomIdx = Math.floor(Math.random() * chars.length);
     const randomChar = chars[randomIdx];
     password.push(randomChar);
   }
   return password.join("");
-};
+}
+
+// Fisher-Yates shuffle
+function shuffle(arr: string[]) {
+  let i;
+  let m = arr.length;
+
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    const tmp = arr[m];
+    arr[m] = arr[i];
+    arr[i] = tmp;
+  }
+}
 
 button.addEventListener("click", setPassword);
