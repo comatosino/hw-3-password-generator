@@ -21,7 +21,11 @@ export default {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "src/index.html" }, { from: "src/styles.css" }],
+      patterns: [
+        { from: "src/index.html" },
+        { from: "src/styles.css" },
+        { from: "src/favicon.ico" },
+      ],
     }),
   ],
   resolve: {
