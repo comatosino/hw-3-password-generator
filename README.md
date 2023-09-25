@@ -1,3 +1,5 @@
+[![GitHub deployments](https://img.shields.io/github/deployments/r0b4dams/passworderator/github-pages?logo=github&label=deploy)](https://r0b4dams.github.io/passworderator/)
+
 # passworderator
 
 A simple web application that generates passwords.
